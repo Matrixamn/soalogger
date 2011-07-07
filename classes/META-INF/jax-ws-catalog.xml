@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://hiphiphurax:8080/SoaloggerService/SoaloggerServiceService?WSDL"
+          uri="../stockmann/com/soalogger/ws/client/SoaloggerServiceService.wsdl"/>
+</catalog>

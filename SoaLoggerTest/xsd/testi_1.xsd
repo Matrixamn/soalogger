@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+            xmlns:tns="http://TargetNamespace.com/ReadFile"
+            targetNamespace="http://TargetNamespace.com/ReadFile"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+
+            nxsd:version="NXSD"
+            nxsd:stream="chars"
+            nxsd:encoding="US-ASCII"
+>
+
+
+  <xsd:element name="testi">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Testi1" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=";" nxsd:quotedBy="&quot;" />
+        <xsd:element name="Testi2" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy=";" nxsd:quotedBy="&quot;" />
+        <xsd:element name="Testi3" type="xsd:string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" nxsd:quotedBy="&quot;" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>
+<!--NXSDWIZ:/Users/iMac/Tuomaksen_projektit/LoggingService/testi.txt:-->
+<!--USE-HEADER:false:-->

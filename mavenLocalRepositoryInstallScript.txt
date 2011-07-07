@@ -1,0 +1,12 @@
+-> Mene hakemistoon missä jar on tai liitä hakemiston polku tiedoston nimen eteen...
+
+
+	mvn install:install-file -DgroupId=stockmann.com.logging -DartifactId=SoaLoggerEjbClient -Dversion=0.0.3.7 -Dfile=SoaloggerJmsReader.jar -Dpackaging=jar -DgeneratePom=true
+	
+	<dependency>
+      <groupId>stockmann.com.logging</groupId>
+      <artifactId>SoaLoggerEjbClient</artifactId>
+      <version>0.0.0.1</version>
+    </dependency>
+
+----------------------------------------------------------------------------------------------------------------------------

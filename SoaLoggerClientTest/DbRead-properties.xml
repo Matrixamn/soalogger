@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <entry key="SOA_SUITE_TEST.NAME:db_column_type">VARCHAR2</entry>
+   <entry key="SOA_SUITE_TEST:db_column_3">ADDL_DETAIL</entry>
+   <entry key="SOA_SUITE_TEST:db_column_2">DESCR</entry>
+   <entry key="SOA_SUITE_TEST:db_column_1">NAME</entry>
+   <entry key="SOA_SUITE_TEST:db_column_0">ID</entry>
+   <entry key="SOA_SUITE_TEST.DESCR:db_column_type">VARCHAR2</entry>
+   <entry key="SOA_SUITE_TEST.ID:db_column_size">20</entry>
+   <entry key="SOA_SUITE_TEST.ADDL_DETAIL:db_column_type">VARCHAR2</entry>
+   <entry key="SOA_SUITE_TEST.NAME:db_column_size">50</entry>
+   <entry key="return_single_result_set">false</entry>
+   <entry key="SOA_SUITE_TEST:db_table_type">TABLE</entry>
+   <entry key="SOA_SUITE_TEST.DESCR:db_column_size">20</entry>
+   <entry key="SOA_SUITE_TEST.ID:db_column_not_null">false</entry>
+   <entry key="root_descriptor_alias">SOA_SUITE_TEST</entry>
+   <entry key="SOA_SUITE_TEST.NAME:db_column_not_null">false</entry>
+   <entry key="SOA_SUITE_TEST.ADDL_DETAIL:db_column_size">50</entry>
+   <entry key="SOA_SUITE_TEST.DESCR:db_column_not_null">false</entry>
+   <entry key="SOA_SUITE_TEST.ADDL_DETAIL:db_column_not_null">false</entry>
+   <entry key="SOA_SUITE_TEST.ID:db_column_type">VARCHAR2</entry>
+</properties>

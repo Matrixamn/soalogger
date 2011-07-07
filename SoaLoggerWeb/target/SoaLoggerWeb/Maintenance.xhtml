@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<head>
+<title>Stockmann Soa logger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/coin-slider.css" />
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="menu_nav">
+        <ul>
+            <h:form id="linkForm">
+            <li><h:commandLink value="#{msgs.monitorPage_backLink}" action="#{monitorPage.navigateToSettings}" /></li>
+            <li><h:commandLink value="#{msgs.Main_logSearchLink}" action="#{sessionController.navigateToMonitor}"/></li>
+          </h:form>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+	  <div class="article">
+		<img src="images/logo-stockmann.gif" />
+	  </div>
+	  
+         <div class="article">
+             <rich:panel id="maxQueryResultPanel">
+                 <f:facet name="header">
+                     <h:outputText value="#{msgs.Maintenance_maxQueryResults}"/>
+                 </f:facet>
+                 <a4j:form id="maxQueryResultForm">
+                     <table>
+                         <tr>
+                             <td>
+                                 <h:outputText value="#{msgs.Maintenance_maxQueryResultsMaxEntries}"/>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <h:inputText value="#{soaLoggerAppBean.maxQueryResults}"/>
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <a4j:commandButton value="#{msgs.Maintenance_maxQueryResultsBtn}" reRender="maxQueryResultPanel"/>
+                             </td>
+                         </tr>
+                     </table>
+                 </a4j:form>
+             </rich:panel>
+             <br/>
+              <rich:panel id="cleaningPanel">
+                  <f:facet name="header">
+                      <h:outputText value="#{msgs.Maintenance_cleaningBatchTitle}"/>
+                  </f:facet>
+                  <table>
+                      <tr>
+                          <td>
+                    <a4j:form id="cleaningBatchForm">
+                    <table>
+                        <tr>
+
+                            <td>
+                                <h:outputText value="#{msgs.Maintenance_cleaningBatchTime}"/>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <h:inputText value="#{soaLoggerAppBean.triggerMinutes}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a4j:commandButton value="#{msgs.Maintenance_cleaningBatchStartBtn}" reRender="cleaningBatchForm" action="#{soaLoggerAppBean.scheduleCleaning}" disabled="#{soaLoggerAppBean.scheduled}"/>
+                            </td>
+                            <td>
+                                <a4j:commandButton value="#{msgs.Maintenance_cleaningBatchStopBtn}" reRender="cleaningBatchForm" action="#{soaLoggerAppBean.stopSchedule}" disabled="#{!soaLoggerAppBean.scheduled}"/>
+                            </td>
+                        </tr>
+                    </table>
+                    </a4j:form>
+                          </td>
+                      </tr>
+                      <tr>
+                      <td>
+              <a4j:form id="schedTableForm">
+              <table>
+
+              
+                  <tr>
+                      <td>
+                          <rich:extendedDataTable id="schedTable" selection="#{maintenanceBean.scheduleSelection}" value="#{maintenanceBean.schedules}" var="sched" selectionMode="single" width="300px" height="150px">
+                      <rich:column>
+                          <f:facet name="header">
+                              <h:outputText value="#{msgs.Maintenance_cleaningBatchTableInterface}"/>
+                          </f:facet>
+                          <h:outputText value="#{sched.logInterface.logInterfaceName}"/>
+                      </rich:column>
+                      <rich:column>
+                          <f:facet name="header">
+                              <h:outputText value="#{msgs.Maintenance_cleaningBatchTableDays}"/>
+                          </f:facet>
+                          <h:outputText value="#{sched.daysOlderToRemove}"/>
+                      </rich:column>
+                     <rich:column>
+                         <f:facet name="header">
+                             <h:outputText value="#{msgs.Maintenance_scheduleEditSchedEnv}"/>
+                         </f:facet>
+                         <h:outputText value="#{sched.logInterface.environmentFlag}"/>
+                     </rich:column>
+                      <a4j:support id="take_scheduleSelection" action="#{maintenanceBean.takeScheduleSelection}" event="onclick" reRender="schedEditPanel" oncomplete="Richfaces.showModalPanel('schedEditPanel', {height:'200px', width:'300px'});" />
+                  </rich:extendedDataTable>
+                          </td>
+                  </tr>
+              </table>
+              </a4j:form>
+                  <a4j:form id="newScheduleForm">
+                      <table>
+                      <tr>
+                      <td>
+                          <a4j:commandButton value="#{msgs.Maintenance_cleaningBatchNewBatchBtn}" action="#{maintenanceBean.newSchedule}" reRender="schedEditPanel" oncomplete="Richfaces.showModalPanel('schedEditPanel', {height:'200px', width:'300px'});" />
+                      </td>
+                  </tr>
+                     </table>
+                  </a4j:form>
+                      </td>
+                      </tr>
+                  </table>
+              </rich:panel>
+          </div>
+          <div class="article">
+          
+          <rich:modalPanel id="schedEditPanel">
+              <f:facet name="header">
+                  <h:outputText value="#{msgs.Maintenance_scheduleEditTitle}"/>
+              </f:facet>
+              <f:facet name="controls">
+                                <h:panelGroup>
+                                    <h:graphicImage value="/images/close.png" styleClass="hidelink" id="hideSchedEdit"/>
+                                    <rich:componentControl for="schedEditPanel" attachTo="hideSchedEdit" operation="hide" event="onclick"/>
+                                </h:panelGroup>
+                            </f:facet>
+              <a4j:form id="schedEditForm">
+              <table>
+                  <tr>
+                      <td><h:outputText value="#{msgs.Maintenance_scheduleEditSchedEnv}"/></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <h:selectOneMenu id="envNotTableEnvSelect" value="#{maintenanceBean.selectedEnv}">
+                                      <f:selectItems value="#{maintenanceBean.envMap}"/>
+                                      <a4j:support id="loadSchedInterfaces" action="#{maintenanceBean.loadInterfaces}" event="onblur" reRender="interfaceMenu"/>
+                                  </h:selectOneMenu>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <h:outputText value="#{msgs.Maintenance_scheduleEditSchedInterface}"/>
+                      </td>
+                      <td>
+                          <h:outputText value="#{msgs.Maintenance_scheduleEditSchedDays}"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <h:selectOneMenu id="interfaceMenu" value="#{maintenanceBean.interfaceId}">
+                              <f:selectItems value="#{maintenanceBean.interfaceHm}"/>
+                          </h:selectOneMenu>
+                      </td>
+                      <td>
+                          <h:inputText value="#{maintenanceBean.selectedSchedule.daysOlderToRemove}"/>
+                      </td>
+                  </tr>
+                  
+                  <tr>
+                      <td>
+                          <a4j:commandButton value="#{msgs.Maintenance_scheduleEditSchedSaveBtn}" action="#{maintenanceBean.saveSchedule}" reRender="schedEditPanel, schedTableForm" oncomplete="Richfaces.hideModalPanel('schedEditPanel');" />
+                      </td>
+                      <td>
+                          <a4j:commandButton value="#{msgs.Maintenance_scheduleEditSchedRemoveBtn}" action="#{maintenanceBean.removeSchedule}" reRender="schedEditPanel, schedTableForm" oncomplete="Richfaces.hideModalPanel('schedEditPanel');" />
+                      </td>
+                  </tr>
+              </table>
+              </a4j:form>
+          </rich:modalPanel>
+              
+              </div>
+          <div class="article">
+              <rich:panel id="notificationTablePanel">
+                  <f:facet name="header">
+                      <h:outputText value="#{msgs.Maintenance_notificationTitle}"/>
+                  </f:facet>
+                  <a4j:form id="notificationTableForm">
+                      <table>
+                          <tr>
+                              <td>
+                                  <h:outputText value="#{msgs.Maintenance_notificationEnv}"/>
+                              </td>
+                          </tr>
+                          <tr>
+                                <td>
+                                  <h:selectOneMenu id="envNotTableEnvSelect" value="#{maintenanceBean.selectedEnv}">
+                                      <f:selectItems value="#{maintenanceBean.envMap}"/>
+                                      <a4j:support id="loadTableInterfaces" action="#{maintenanceBean.loadInterfacesWithEnv}" event="onblur" reRender="notInterfaceSelect"/>
+                                  </h:selectOneMenu>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <h:selectOneMenu id="notInterfaceSelect" value="#{maintenanceBean.interfaceId}">
+                                      <f:selectItems value="#{maintenanceBean.interfaceHm}"/>
+                                  </h:selectOneMenu>
+                              </td>
+                              <td>
+                                  <a4j:commandButton value="#{msgs.Maintenance_notificationFindBtn}" action="#{maintenanceBean.loadNotifications}" reRender="notificationTable"/>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                              <rich:extendedDataTable id="notificationTable" value="#{maintenanceBean.notifications}" var="notification" selectionMode="single" selection="#{maintenanceBean.notSelection}"
+                                                      width="250px" height="150px">
+
+                                  <rich:column>
+                                      <f:facet name="header">
+                                          <h:outputText value="#{msgs.Maintenance_notificationRecipient}"/>
+                                      </f:facet>
+                                      <h:outputText value="#{notification.recipientEmail}"/>
+                                  </rich:column>
+                                  <rich:column>
+                                      <f:facet name="header">
+                                          <h:outputText value="#{msgs.Maintenance_notificationEnv}"/>
+                                      </f:facet>
+                                      <h:outputText value="#{notification.interfaceEnv}"/>
+                                  </rich:column>
+                                  <a4j:support id="take_notificationSelection" action="#{maintenanceBean.selectNotification}" event="onclick" reRender="notificationEditPanel" oncomplete="Richfaces.showModalPanel('notificationEditPanel', {height:'300px', width:'400px'});" />
+                              </rich:extendedDataTable>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <a4j:commandButton value="#{msgs.Maintenance_notificationAddBtn}" action="#{maintenanceBean.newNotification}" reRender="notificationEditPanel" oncomplete="Richfaces.showModalPanel('notificationEditPanel', {height:'300px', width:'400px'});"/>
+                              </td>
+                          </tr>
+                      </table>
+                  </a4j:form>
+              </rich:panel>
+
+              <rich:modalPanel id="notificationEditPanel">
+                  <f:facet name="header">
+                      <h:outputText value="#{msgs.Maintenance_notificationEditTitle}"/>
+                  </f:facet>
+                  <f:facet name="controls">
+                                <h:panelGroup>
+                                    <h:graphicImage value="/images/close.png" styleClass="hidelink" id="hideNotEdit"/>
+                                    <rich:componentControl for="notificationEditPanel" attachTo="hideNotEdit" operation="hide" event="onclick"/>
+                                </h:panelGroup>
+                            </f:facet>
+                  <a4j:form id="notificationEditForm">
+                  <table>
+                      <tr>
+                          <td>
+                              <h:outputText value="#{msgs.Maintenance_notificationEnv}"/>
+                          </td>
+                          <td>
+                              <h:outputText value="#{msgs.Maintenance_notificationRecipient}"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <h:selectOneMenu value="#{maintenanceBean.selectedNotification.interfaceEnv}">
+                                  <f:selectItems value="#{maintenanceBean.envMap}"/>
+                                  <a4j:support id="loadInterfaces" action="#{maintenanceBean.loadInterfacesWithEnv}" event="onblur" reRender="notificationEditIntSelect"/>
+                              </h:selectOneMenu>
+                          </td>
+                          <td>
+                              <h:inputText value="#{maintenanceBean.selectedNotification.recipientEmail}"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <h:outputText value="#{msgs.Maintenance_notificationInterface}"/>
+                          </td>
+                          <td>
+                              <h:outputText value="#{msgs.Maintenance_notificationDesc}"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <h:selectOneMenu id="notificationEditIntSelect" value="#{maintenanceBean.interfaceId}">
+                                  <f:selectItems value="#{maintenanceBean.interfaceHm}"/>
+                              </h:selectOneMenu>
+                          </td>
+                          <td>
+                              <h:inputTextarea value="#{maintenanceBean.selectedNotification.notificationDesc}"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <a4j:commandButton value="#{msgs.Maintenance_notificationSaveBtn}" action="#{maintenanceBean.saveNotification}" reRender="notificationTablePanel" oncomplete="Richfaces.hideModalPanel('notificationEditPanel');" />
+                          </td>
+                          <td>
+                              <a4j:commandButton value="#{msgs.Maintenance_notificationRemoveBtn}" rendered="#{maintenanceBean.showRemoveBtn}" action="#{maintenanceBean.removeNotification}" reRender="notificationTablePanel" oncomplete="Richfaces.hideModalPanel('notificationEditPanel');" />
+                          </td>
+                          <td>
+                              <a4j:commandButton value="#{msgs.Maintenance_notificationCancelBtn}" onclick="Richfaces.hideModalPanel('notificationEditPanel');"/>
+                          </td>
+                      </tr>
+                  </table>
+                  </a4j:form>
+              </rich:modalPanel>
+          </div>
+          <div class="article">
+
+              <a4j:form id="statusBar">
+              <a4j:status>
+                                        <f:facet name="start">
+                                        <h:graphicImage  value="/images/wait3.gif"/>
+                                        </f:facet>
+                                    </a4j:status>
+          </a4j:form>
+          </div>
+	  </div>
+
+      </div>
+
+	  <div class="clr"></div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright <a href="#">Katva Consulting. All rights reserved</a>.</p>
+      <p class="rf">Design by Dream <a href="http://www.dreamtemplate.com/">Web Templates</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+
+</body>
+</html>

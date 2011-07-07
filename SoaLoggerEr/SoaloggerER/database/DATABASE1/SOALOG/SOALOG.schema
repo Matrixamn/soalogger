@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">93951c0d-135d-4176-abc1-178d1cd00e99</identifier>
+  </ID>
+  <name>SOALOG</name>
+</schema>

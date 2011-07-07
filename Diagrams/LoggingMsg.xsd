@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.stockmann.com"
+            targetNamespace="http://www.stockmann.com"
+            elementFormDefault="qualified">
+  <xsd:element name="LogMessage">
+    <xsd:annotation>
+      <xsd:documentation>
+        A sample element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="InterfaceName" type="xsd:string"/>
+        <xsd:element name="InterfaceVersion" type="xsd:decimal"/>
+        <xsd:element name="InterfaceEnvironment" type="xsd:string"/>
+        <xsd:element name="IntegrationType" type="xsd:string"/>
+        <xsd:element name="LogEntries">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="LogEntry" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="LogLevel" type="xsd:string"/>
+                    <xsd:element name="LogDate" type="xsd:date"/>
+                    <xsd:element name="LogMessage" type="xsd:string"/>
+                    <xsd:element name="LogPayload" type="xsd:string"/>
+                    <xsd:element name="LogMessageType" type="xsd:string"/>
+                    <xsd:element name="LogFields">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="LogField" maxOccurs="unbounded">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="FieldName"
+                                             type="xsd:string"/>
+                                <xsd:element name="FieldValue"
+                                             type="xsd:string"/>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

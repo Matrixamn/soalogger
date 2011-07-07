@@ -1,0 +1,21 @@
+<?binding.jca DbRead_db.jca?>
+<wsdl:definitions name="DbRead" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/LoggingService/SoaLoggerClientTest/DbRead" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/LoggingService/SoaLoggerClientTest/DbRead" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/DbRead">
+    <plt:partnerLinkType name="DbRead_plt">
+        <plt:role name="DbRead_role">
+            <plt:portType name="tns:DbRead_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/DbRead" schemaLocation="xsd/DbRead_table.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="SoaSuiteTestCollection_msg">
+        <wsdl:part name="SoaSuiteTestCollection" element="top:SoaSuiteTestCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="DbRead_ptt">
+        <wsdl:operation name="receive">
+            <wsdl:input message="tns:SoaSuiteTestCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

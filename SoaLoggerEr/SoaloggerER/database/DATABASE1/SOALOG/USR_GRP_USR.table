@@ -1,0 +1,176 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">bd7b9105-cc4b-4498-8e4c-14cd65ecf5f7</identifier>
+  </ID>
+  <name>USR_GRP_USR</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c1f6d73e-aa9e-4d64-a0fe-f0561d67df64</identifier>
+      </ID>
+      <name>USR_GRP_USR_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">d98d48cb-893c-45e1-8db5-a94f643eb6f4</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">2a62af74-7dda-4556-b813-3a931672cf08</identifier>
+      </ID>
+      <name>INT_USR_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">51d6d85d-0a3b-446a-a05e-a0ff032ec37b</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">104d1009-c862-4fb9-9320-1f9f207e941a</identifier>
+      </ID>
+      <name>USER_GROUP_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">3ff3e6df-10a2-4caa-bf3b-6532f4ca71cb</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">e9cf7505-ad0d-4356-8f5f-782a72a66e33</identifier>
+      </ID>
+      <name>EXT_USRNAME</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">471b449b-b61f-4e17-9dc0-f33bcea82155</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">3c949b66-66cd-49f2-be49-9ac05bef6791</identifier>
+      </ID>
+      <name>USR_GRP_USR_INT_USR_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>INT_USR_ID</name>
+          <identifier class="java.lang.String">2a62af74-7dda-4556-b813-3a931672cf08</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>USR_GRP_USR</name>
+            <identifier class="java.lang.String">bd7b9105-cc4b-4498-8e4c-14cd65ecf5f7</identifier>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>INT_USR_PK</name>
+        <identifier class="java.lang.String">03da03b3-2c84-4672-9f0f-299a95534f39</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>INT_USR</name>
+          <identifier class="java.lang.String">606a3001-e31b-4dda-b667-017b8378ce60</identifier>
+          <schemaName>SOALOG</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SOALOG</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a2ff8f14-5417-428d-876e-30ccc2190c91</identifier>
+      </ID>
+      <name>USR_GRP_USR_USER_GROUP_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_GROUP_ID</name>
+          <identifier class="java.lang.String">104d1009-c862-4fb9-9320-1f9f207e941a</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>USR_GRP_USR</name>
+            <identifier class="java.lang.String">bd7b9105-cc4b-4498-8e4c-14cd65ecf5f7</identifier>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>USER_GROUP_PK</name>
+        <identifier class="java.lang.String">6634c2d4-3256-42d7-81f1-c32ab295473b</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_GROUP</name>
+          <identifier class="java.lang.String">1cad6e05-232a-47a5-a016-b1d0617e2dbc</identifier>
+          <schemaName>SOALOG</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">3b1d5f9b-352a-4136-96bf-70daaa2450db</identifier>
+      </ID>
+      <name>USR_GRP_USR_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USR_GRP_USR_ID</name>
+          <identifier class="java.lang.String">c1f6d73e-aa9e-4d64-a0fe-f0561d67df64</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>USR_GRP_USR</name>
+            <identifier class="java.lang.String">bd7b9105-cc4b-4498-8e4c-14cd65ecf5f7</identifier>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>SOALOG</name>
+  </schema>
+</table>

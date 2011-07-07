@@ -1,0 +1,8 @@
+Jms pohjaisen SoaLogger-client:n käyttöönotto:
+
+Luo JMS-jono Soa Suite 11g - palvelimelle : esim SOAJMSModule:n alle. Jonon nimi: SoaLoggerQueue ja JNDI-nimi : jms/soaloggerqueue. Subdeployment valinnaksi : SOASubDeployment
+
+Soa Suite hakemistoon tarvitaan: JmsMsgPojo.jar lisäksi se kopioita jokaisen 
+noodin <domain_home>/lib - hakemistoon.
+
+Properties tiedosto (joka kertoo ympäristön DEV/TST/PROD) ja lokitus vakioviestin yms. on sijoitettava <DOMAIN_HOME>/lib - hakemistoon. 

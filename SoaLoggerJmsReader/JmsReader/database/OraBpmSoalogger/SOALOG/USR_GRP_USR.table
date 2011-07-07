@@ -1,0 +1,420 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">63a1b31e-4fe6-4634-945d-dea8591e9961</identifier>
+  </ID>
+  <name>USR_GRP_USR</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0ac753af-7a39-4a9a-87c6-cc8efaaca817</identifier>
+      </ID>
+      <name>USR_GRP_USR_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">3c2e9aa3-5f4e-456a-9024-ba8487a93627</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>USR_GRP_USR_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>USR_GRP_USR</name>
+                  <identifier class="java.math.BigDecimal">28626</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>USR_GRP_USR_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>USR_GRP_USR</name>
+              <identifier class="java.math.BigDecimal">28626</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">1ce7d742-ca4b-4e85-a298-315f1420a462</identifier>
+      </ID>
+      <name>INT_USR_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">c3c20ae2-6059-488a-9dcb-97fbccc762bf</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>INT_USR_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>USR_GRP_USR</name>
+                  <identifier class="java.math.BigDecimal">28626</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>INT_USR_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>USR_GRP_USR</name>
+              <identifier class="java.math.BigDecimal">28626</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">0467ef0d-70a0-40f9-be23-194747d12fdf</identifier>
+      </ID>
+      <name>USER_GROUP_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">549b9a9d-34cb-437f-aba6-4ad687ba70bd</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>USER_GROUP_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>USR_GRP_USR</name>
+                  <identifier class="java.math.BigDecimal">28626</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>USER_GROUP_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>USR_GRP_USR</name>
+              <identifier class="java.math.BigDecimal">28626</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">f2f33af5-c69a-4987-866b-70ab2decc271</identifier>
+      </ID>
+      <name>EXT_USRNAME</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">dacf3773-5e9f-4c51-8677-399d0e09b966</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">100</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EXT_USRNAME</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>USR_GRP_USR</name>
+                  <identifier class="java.math.BigDecimal">28626</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EXT_USRNAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>USR_GRP_USR</name>
+              <identifier class="java.math.BigDecimal">28626</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">12222375-1915-424e-b71a-dd66ed0dfe55</identifier>
+      </ID>
+      <name>USR_GRP_USR_INT_USR_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>INT_USR_ID</name>
+          <identifier class="java.lang.String">1ce7d742-ca4b-4e85-a298-315f1420a462</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>USR_GRP_USR</name>
+            <identifier class="java.lang.String">63a1b31e-4fe6-4634-945d-dea8591e9961</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>USR_GRP_USR_INT_USR_FK</name>
+            <childObjectNames>
+              <childObjectName>INT_USR_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>USR_GRP_USR</name>
+              <identifier class="java.math.BigDecimal">28626</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>INT_USR_PK</name>
+        <identifier class="java.lang.String">bcb419a0-da05-4877-b1f0-7a0e557ae499</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>INT_USR</name>
+          <identifier class="java.lang.String">70bf5d03-8490-4190-9d34-6ecf7e4ff24e</identifier>
+          <schemaName>SOALOG</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SOALOG</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a9ef2e6e-38bc-4960-93c4-af023524e509</identifier>
+      </ID>
+      <name>USR_GRP_USR_USER_GROUP_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_GROUP_ID</name>
+          <identifier class="java.lang.String">0467ef0d-70a0-40f9-be23-194747d12fdf</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>USR_GRP_USR</name>
+            <identifier class="java.lang.String">63a1b31e-4fe6-4634-945d-dea8591e9961</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>USR_GRP_USR_USER_GROUP_FK</name>
+            <childObjectNames>
+              <childObjectName>USER_GROUP_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>USR_GRP_USR</name>
+              <identifier class="java.math.BigDecimal">28626</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>USER_GROUP_PK</name>
+        <identifier class="java.lang.String">4f31c294-5d2a-4b05-9e85-06bc69dfaf34</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_GROUP</name>
+          <identifier class="java.lang.String">a5783787-6226-4255-9f12-e568df0c979b</identifier>
+          <schemaName>SOALOG</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SOALOG</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">e725fec3-6be3-4864-86c8-ad2465435dc0</identifier>
+      </ID>
+      <name>USR_GRP_USR_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USR_GRP_USR_ID</name>
+          <identifier class="java.lang.String">0ac753af-7a39-4a9a-87c6-cc8efaaca817</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>USR_GRP_USR</name>
+            <identifier class="java.lang.String">63a1b31e-4fe6-4634-945d-dea8591e9961</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>USR_GRP_USR_PK</name>
+            <childObjectNames>
+              <childObjectName>USR_GRP_USR_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>USR_GRP_USR</name>
+              <identifier class="java.math.BigDecimal">28626</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>USR_GRP_USR</name>
+        <identifier class="java.math.BigDecimal">28626</identifier>
+        <schemaName>SOALOG</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">8a4ec61c-8639-4b55-a1ed-da05eb999e62</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <percentFree>10</percentFree>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>USR_GRP_USR</name>
+                <identifier class="java.math.BigDecimal">28626</identifier>
+                <schemaName>SOALOG</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>USERS</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+    <entry>
+      <key>Timestamp</key>
+    </entry>
+  </properties>
+  <schema>
+    <name>SOALOG</name>
+  </schema>
+</table>

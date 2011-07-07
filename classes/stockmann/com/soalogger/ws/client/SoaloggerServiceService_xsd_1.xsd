@@ -1,0 +1,109 @@
+<xs:schema xmlns:tns="http://soaloggerservice.web.logging.soa.stockmann/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     version="1.0" targetNamespace="http://soaloggerservice.web.logging.soa.stockmann/">
+    <xs:element name="Exception" type="tns:Exception"/>
+    <xs:element name="addLogEntryValues" type="tns:addLogEntryValues"/>
+    <xs:element name="addLogEntryValuesResponse" type="tns:addLogEntryValuesResponse"/>
+    <xs:element name="addLogInterfaceEntry" type="tns:addLogInterfaceEntry"/>
+    <xs:element name="addLogInterfaceEntryResponse" type="tns:addLogInterfaceEntryResponse"/>
+    <xs:element name="addLogMessage" type="tns:addLogMessage"/>
+    <xs:element name="addLogMessageResponse" type="tns:addLogMessageResponse"/>
+    <xs:element name="getInterfaceFields" type="tns:getInterfaceFields"/>
+    <xs:element name="getInterfaceFieldsResponse" type="tns:getInterfaceFieldsResponse"/>
+    <xs:complexType name="addLogEntryValues">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:logEntryTo" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logEntryTo">
+        <xs:sequence>
+            <xs:element name="entryValuesList" type="tns:entryValueTo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="instanceVersion" type="xs:string" minOccurs="0"/>
+            <xs:element name="integrationInstanceId" type="xs:string" minOccurs="0"/>
+            <xs:element name="logDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="logEntryId" type="xs:int" minOccurs="0"/>
+            <xs:element name="logLevel" type="xs:string" minOccurs="0"/>
+            <xs:element name="logMsg" type="xs:string" minOccurs="0"/>
+            <xs:element name="logPayload" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="entryValueTo">
+        <xs:sequence>
+            <xs:element name="entryValue" type="xs:string" minOccurs="0"/>
+            <xs:element name="valueId" type="xs:int" minOccurs="0"/>
+            <xs:element name="valueName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addLogEntryValuesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Exception">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addLogInterfaceEntry">
+        <xs:sequence>
+            <xs:element name="interface" type="tns:logInterfaceTo" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logInterfaceTo">
+        <xs:sequence>
+            <xs:element name="applyBase64" type="xs:string" minOccurs="0"/>
+            <xs:element name="environmentFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="integrationType" type="xs:string" minOccurs="0"/>
+            <xs:element name="logEntryList" type="tns:logEntryTo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="logFieldsList" type="tns:logFieldTo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="logInterfaceId" type="xs:int" minOccurs="0"/>
+            <xs:element name="logInterfaceName" type="xs:string" minOccurs="0"/>
+            <xs:element name="logInterfaceVersion" type="xs:string" minOccurs="0"/>
+            <xs:element name="logMessageFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="msgEncoding" type="xs:string" minOccurs="0"/>
+            <xs:element name="msgMaxLenght" type="xs:int" minOccurs="0"/>
+            <xs:element name="preferredLoggingLevel" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logFieldTo">
+        <xs:sequence>
+            <xs:element name="elementName" type="xs:string" minOccurs="0"/>
+            <xs:element name="logFieldId" type="xs:int" minOccurs="0"/>
+            <xs:element name="logFieldName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addLogInterfaceEntryResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:logInterfaceTo" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addLogMessage">
+        <xs:sequence>
+            <xs:element name="logMessage" type="tns:logMsgTo" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logMsgTo">
+        <xs:sequence>
+            <xs:element name="base64Flag" type="xs:string" minOccurs="0"/>
+            <xs:element name="env" type="xs:string" minOccurs="0"/>
+            <xs:element name="instanceId" type="xs:string" minOccurs="0"/>
+            <xs:element name="interfaceName" type="xs:string" minOccurs="0"/>
+            <xs:element name="logMsg" type="xs:string" minOccurs="0"/>
+            <xs:element name="msgEncoding" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addLogMessageResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getInterfaceFields">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:logInterfaceTo" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getInterfaceFieldsResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:logFieldTo" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

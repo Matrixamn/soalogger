@@ -1,0 +1,116 @@
+<definitions
+     name="SoaloggerServiceService"
+     targetNamespace="http://soaloggerservice.web.logging.soa.stockmann/"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://soaloggerservice.web.logging.soa.stockmann/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    >
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://soaloggerservice.web.logging.soa.stockmann/" schemaLocation="SoaloggerServiceService_xsd_1.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="addLogEntryValues">
+        <part name="parameters" element="tns:addLogEntryValues"/>
+    </message>
+    <message name="addLogEntryValuesResponse">
+        <part name="parameters" element="tns:addLogEntryValuesResponse"/>
+    </message>
+    <message name="Exception">
+        <part name="fault" element="tns:Exception"/>
+    </message>
+    <message name="getInterfaceFields">
+        <part name="parameters" element="tns:getInterfaceFields"/>
+    </message>
+    <message name="getInterfaceFieldsResponse">
+        <part name="parameters" element="tns:getInterfaceFieldsResponse"/>
+    </message>
+    <message name="addLogMessage">
+        <part name="parameters" element="tns:addLogMessage"/>
+    </message>
+    <message name="addLogMessageResponse">
+        <part name="parameters" element="tns:addLogMessageResponse"/>
+    </message>
+    <message name="addLogInterfaceEntry">
+        <part name="parameters" element="tns:addLogInterfaceEntry"/>
+    </message>
+    <message name="addLogInterfaceEntryResponse">
+        <part name="parameters" element="tns:addLogInterfaceEntryResponse"/>
+    </message>
+    <portType name="SoaloggerService">
+        <operation name="addLogEntryValues">
+            <input message="tns:addLogEntryValues"/>
+            <output message="tns:addLogEntryValuesResponse"/>
+            <fault name="Exception" message="tns:Exception"/>
+        </operation>
+        <operation name="getInterfaceFields">
+            <input message="tns:getInterfaceFields"/>
+            <output message="tns:getInterfaceFieldsResponse"/>
+            <fault name="Exception" message="tns:Exception"/>
+        </operation>
+        <operation name="addLogMessage">
+            <input message="tns:addLogMessage"/>
+            <output message="tns:addLogMessageResponse"/>
+        </operation>
+        <operation name="addLogInterfaceEntry">
+            <input message="tns:addLogInterfaceEntry"/>
+            <output message="tns:addLogInterfaceEntryResponse"/>
+            <fault name="Exception" message="tns:Exception"/>
+        </operation>
+    </portType>
+    <binding name="SoaloggerServicePortBinding" type="tns:SoaloggerService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="addLogEntryValues">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="getInterfaceFields">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="addLogMessage">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="addLogInterfaceEntry">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="Exception">
+                <soap:fault name="Exception" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="SoaloggerServiceService">
+        <port name="SoaloggerServicePort" binding="tns:SoaloggerServicePortBinding">
+            <soap:address location="http://192.168.100.29:8080/SoaloggerService/SoaloggerServiceService"/>
+        </port>
+    </service>
+</definitions>

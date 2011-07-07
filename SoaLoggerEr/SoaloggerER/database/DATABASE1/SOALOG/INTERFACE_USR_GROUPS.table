@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">85bfb0aa-b96b-49f1-a37b-2c214c265c5e</identifier>
+  </ID>
+  <name>INTERFACE_USR_GROUPS</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">de86b466-71d6-45d2-a20c-157bc4a27809</identifier>
+      </ID>
+      <name>LOG_INTERFACE_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">da444b3f-0e26-4e8e-8575-c04497749dc6</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">cfdcbc35-ad25-4950-becc-a6c531ce158f</identifier>
+      </ID>
+      <name>USER_GROUP_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">67c8764a-08e6-40c1-a341-1ca2c6989d87</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">f231df14-e1fc-4e8c-b1f1-1886e9c1ea6a</identifier>
+      </ID>
+      <name>INTERFACE_USR_GROUPS_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>LOG_INTERFACE_ID</name>
+          <identifier class="java.lang.String">de86b466-71d6-45d2-a20c-157bc4a27809</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>INTERFACE_USR_GROUPS</name>
+            <identifier class="java.lang.String">85bfb0aa-b96b-49f1-a37b-2c214c265c5e</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>LOG_INTERFACE_PK</name>
+        <identifier class="java.lang.String">be668f4a-4b60-4b16-bca3-3323668dd72c</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>LOG_INTERFACE</name>
+          <identifier class="java.lang.String">b9458888-9f3f-492c-81af-33662f68d324</identifier>
+          <schemaName>SOALOG</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7d6d4208-ccb1-4e0e-a33f-e2e9269b32cb</identifier>
+      </ID>
+      <name>INTERFACE_USR_GROUPS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_GROUP_ID</name>
+          <identifier class="java.lang.String">cfdcbc35-ad25-4950-becc-a6c531ce158f</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>INTERFACE_USR_GROUPS</name>
+            <identifier class="java.lang.String">85bfb0aa-b96b-49f1-a37b-2c214c265c5e</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>USER_GROUP_PK</name>
+        <identifier class="java.lang.String">6634c2d4-3256-42d7-81f1-c32ab295473b</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_GROUP</name>
+          <identifier class="java.lang.String">1cad6e05-232a-47a5-a016-b1d0617e2dbc</identifier>
+          <schemaName>SOALOG</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">67e5ba62-1a98-4c20-a733-88d804e857da</identifier>
+      </ID>
+      <name>INTERFACE_USR_GROUPS_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>LOG_INTERFACE_ID</name>
+          <identifier class="java.lang.String">de86b466-71d6-45d2-a20c-157bc4a27809</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>INTERFACE_USR_GROUPS</name>
+            <identifier class="java.lang.String">85bfb0aa-b96b-49f1-a37b-2c214c265c5e</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>USER_GROUP_ID</name>
+          <identifier class="java.lang.String">cfdcbc35-ad25-4950-becc-a6c531ce158f</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>INTERFACE_USR_GROUPS</name>
+            <identifier class="java.lang.String">85bfb0aa-b96b-49f1-a37b-2c214c265c5e</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>SOALOG</name>
+  </schema>
+</table>

@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<head>
+<title>Stockmann Soa logger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/coin-slider.css" />
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="menu_nav">
+        <ul>
+            <h:form id="linkForm">
+                     <li><h:commandLink value="#{msgs.Main_logSearchLink}" action="#{sessionController.navigateToMonitor}"/></li>
+                    <li><h:commandLink value="#{msgs.Main_maintenanceLink}" action="#{sessionController.navigateMaintenance}"/></li>
+            </h:form>
+            
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+	  <div class="article">
+		<img src="images/logo-stockmann.gif" />
+	  </div>
+	  <div class="article"></div>
+		<div class="article">
+                    <p><h:messages/></p>
+
+		</div>
+		<div class="article">
+                    <table>
+                        <tr>
+                            
+                            <td>
+                                <a4j:form id="errorTableForm">
+                                    <rich:panel rendered="#{sessionController.showErrors}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msgs.Main_errorPanelTitle}"/>
+                                        </f:facet>
+                                        <rich:extendedDataTable id="errorTable" var="error" width="300px" height="150px" value="#{sessionController.errorInterfaces}">
+                                            <rich:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{msgs.Main_errorTableName}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{error.logInterfaceName}"/>
+                                            </rich:column>
+                                            <rich:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{msgs.Main_errorTableEnv}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{error.environmentFlag}"/>
+                                            </rich:column>
+                                            <rich:column>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{msgs.Main_errorTableErrorCount}"/>
+                                                </f:facet>
+                                                <h:outputText value="#{error.addField}"/>
+                                            </rich:column>
+
+                                        </rich:extendedDataTable>
+                                    </rich:panel>
+                                </a4j:form>
+                            </td>
+                        </tr>
+                        </table>
+                        <table>
+                        <tr>
+                            <td>
+
+                        <a4j:form id="interfaceTableForm">
+                            <rich:panel>
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.Main_interfaceTablePanelHdr}"/>
+                                </f:facet>
+                                
+                        
+                            <h:outputText value="#{msgs.Main_envSelectTitle}"/><br/>
+                            <h:selectOneMenu value="#{sessionController.selectedEnvironment}" >
+                                <f:selectItems value="#{sessionController.envsHm}"/>
+                             </h:selectOneMenu><br/>
+                             <a4j:commandButton value="#{msgs.Main_envSelectBtn}" action="#{sessionController.loadInterfaces}" reRender="interfaceTableForm"/>
+                       
+
+                    
+
+                            <rich:extendedDataTable id="interfaceTable" value="#{sessionController.interfaces}" var="interfaces" selectionMode="single" selection="#{sessionController.interfaceSelection}"
+                                                width="400px" height="250px">
+                                <rich:column sortable="true" sortBy="#{interfaces.logInterfaceName}">
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msgs.Main_interfaceTable_interfaceName}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{interfaces.logInterfaceName}"/>
+                                </rich:column>
+                                <rich:column sortable="true" sortBy="#{interfaces.environmentFlag}">
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msgs.Main_interfaceTable_env}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{interfaces.environmentFlag}"/>
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msgs.Main_interfaceTable_version}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{interfaces.logInterfaceVersion}"/>
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msgs.Main_interfaceTable_type}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{interfaces.integrationType}"/>
+                                </rich:column>
+                                <a4j:support reRender="selectedInterfaceForm, logFieldTableForm" id="take_intSelection" action="#{sessionController.takeInterfaceSelection}" event="onclick" />
+                            </rich:extendedDataTable>
+                            <a4j:commandButton value="#{msgs.Main_refreshBtn}" action="#{sessionController.refreshTable}" reRender="interfaceTableForm, errorTableForm"/><br/>
+                             </rich:panel>
+                             <a4j:status>
+                                        <f:facet name="start">
+                                        <h:graphicImage  value="/images/wait3.gif"/>
+                                        </f:facet>
+                                    </a4j:status>
+                        </a4j:form>
+                            </td>
+                        </tr>
+                       </table>
+		</div>
+                <div class="article">
+                    <a4j:form id="selectedInterfaceForm">
+                        <rich:panel id="interfaceEdit" rendered="#{sessionController.showInterfaceEdit}">
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.Main_interfaceEditTitle}"/>
+                                </f:facet>
+                            <table>
+                                <tr>
+                                    <td><h:outputText value="#{msgs.Main_interfaceEditName}"/></td>
+                                    <td><h:outputText value="#{msgs.Main_interfaceEditVersion}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:inputText value="#{sessionController.selectedInterface.logInterfaceName}" disabled="true"/>
+                                    </td>
+                                    <td>
+                                        <h:inputText value="#{sessionController.selectedInterface.logInterfaceVersion}" disabled="true"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h:outputText value="#{msgs.Main_interfaceEditIntegrationType}"/></td>
+                                    <td><h:outputText value="#{msgs.Main_interfaceEditEnvironment}"/></td>
+                                </tr>
+                                <tr>
+                                    <td><h:inputText value="#{sessionController.selectedInterface.integrationType}"/></td>
+                                    <td>
+                                        <h:selectOneMenu disabled="true" value="#{sessionController.selectedEnv}" >
+                                            <f:selectItems value="#{sessionController.envDropDown}"/>
+                                        </h:selectOneMenu>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h:outputText value="#{msgs.Main_interfaceEditLogMsgFlag}"/></td>
+                                    <td><h:outputText value="#{msgs.Main_interfaceEditMsgMaxLenght}"/></td>
+                                </tr>
+                                <tr>
+                                    <td><h:selectBooleanCheckbox value="#{sessionController.logWholeMsg}"/></td>
+                                    <td><h:inputText value="#{sessionController.selectedInterface.msgMaxLenght}"/></td>
+                                </tr>
+                                <tr>
+                                    <td><a4j:commandButton value="#{msgs.Main_interfaceEditSaveBtn}" action="#{sessionController.saveInterface}" reRender="selectedInterfaceForm, interfaceTableForm, logFieldTableForm"/></td>
+                                    <td><a4j:commandButton value="#{msgs.Main_interfaceRemoveBtn}" onclick="Richfaces.showModalPanel('interfaceRemoveConfirm', {height:'150px', width:'300px'});"/> </td>
+                                    <td><a4j:commandButton value="#{msgs.Main_interfaceEditCancelBtn}" immediate="true" action="#{sessionController.cancelInterfaceEdit}" reRender="selectedInterfaceForm, interfaceTableForm, logFieldTableForm"/></td>
+                                </tr>
+                            </table>
+
+                        </rich:panel>
+                    </a4j:form>
+                </div>
+
+          <div class="article">
+
+              <a4j:form id="logFieldTableForm">
+                  <rich:extendedDataTable id="logFieldTable" rendered="#{sessionController.showLogFieldTable}" value="#{sessionController.logFields}" var="field" selectionMode="single" selection="#{sessionController.fieldSelection}"
+                                                width="200px" height="150px">
+                            <rich:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.Main_logFieldName}"/>
+                                </f:facet>
+                                <h:outputText value="#{field.logFieldName}"/>
+                            </rich:column>
+                            <rich:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.Main_logFieldElement}"/>
+                                </f:facet>
+                                <h:outputText value="#{field.elementName}"/>
+                            </rich:column>
+                      <a4j:support reRender="logFieldEdit" id="take_logFieldSelection" action="#{sessionController.takeFieldSelection}" oncomplete="Richfaces.showModalPanel('logFieldEdit', {height:'200px', width:'400px'});" event="onclick" />
+                        </rich:extendedDataTable><br/>
+                        <a4j:commandButton value="#{msgs.Main_logFieldNewFieldBtn}" oncomplete="Richfaces.showModalPanel('logFieldEdit', {height:'200px', width:'400px'});" rendered="#{sessionController.showLogFieldTable}" action="#{sessionController.newLogField}" reRender="selectedLogFieldForm"/>
+                    </a4j:form>
+
+          </div>
+            <div class="article">
+                <a4j:form id="msgForm">
+                <h:messages/><br/>
+                </a4j:form>
+                    <rich:modalPanel id="logFieldEdit" >
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.Main_logFieldTitle}"/>
+                                </f:facet>
+                        <f:facet name="controls">
+                                <h:panelGroup>
+                                    <h:graphicImage value="/images/close.png" styleClass="hidelink" id="hidelink"/>
+                                    <rich:componentControl for="logFieldEdit" attachTo="hidelink" operation="hide" event="onclick"/>
+                                </h:panelGroup>
+                            </f:facet>
+                        <a4j:form id="selectedLogFieldForm">
+                        <table>
+                            <tr>
+                                <td><h:outputText value="#{msgs.Main_logFieldName}"/></td>
+                                <td><h:outputText value="#{msgs.Main_logFieldElement}"/></td>
+                            </tr>
+                            <tr>
+                                <td><h:inputText value="#{sessionController.selectedLogField.logFieldName}" requiredMessage="#{msgs.LogField_ReqMsg}" required="true" /></td>
+                                <td><h:inputText value="#{sessionController.selectedLogField.elementName}"/></td>
+                                
+                            </tr>
+                            <tr>
+                                <td><h:outputText value="#{msgs.Main_logFieldXpath}"/> </td>
+                            </tr>
+                            <tr>
+                                <td><h:inputTextarea value="#{sessionController.selectedLogField.xmlXpath}"/> </td>
+                            </tr>
+                            <tr>
+                                <td><a4j:commandButton value="#{msgs.Main_logFieldSaveBtn}" action="#{sessionController.saveField}" oncomplete="Richfaces.hideModalPanel('logFieldEdit');" reRender="selectedLogFieldForm, logFieldTableForm, msgForm"/></td>
+                                
+                                <td><a4j:commandButton value="#{msgs.Main_logFieldRemoveBtn}" rendered="#{sessionController.showRemoveBtn}" action="#{sessionController.removeFiled}" oncomplete="Richfaces.hideModalPanel('logFieldEdit');" reRender="selectedLogFieldForm, logFieldTableForm"/></td>
+                            </tr>
+                        </table>
+                            </a4j:form>
+                    </rich:modalPanel>
+                <rich:modalPanel id="interfaceRemoveConfirm">
+                    <f:facet name="header">
+                        <h:outputText value="#{msgs.Main_interfaceRemoveConfirmTitle}"/>
+                    </f:facet>
+                    <a4j:form id="confirmForm">
+                        <table>
+                            <tr>
+                                <td>
+                                <h:outputText value="#{msgs.Main_interfaceRemoveConfirmMsg}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a4j:commandButton value="#{msgs.Main_interfaceRemoveConfirmOkBtn}" action="#{sessionController.removeLogInterface}" reRender="selectedInterfaceForm, interfaceTableForm, errorTableForm, logFieldTableForm" oncomplete="Richfaces.hideModalPanel('interfaceRemoveConfirm'); Richfaces.showModalPanel('removeConfirmMsg', {height:'100px', width:'150px'});" /> </td>
+                                <td><a4j:commandButton value="#{msgs.Main_interfaceRemoveConfirmCancelBtn}" onclick="Richfaces.hideModalPanel('interfaceRemoveConfirm');"/> </td>
+                            </tr>
+                        </table>
+                    </a4j:form>
+                </rich:modalPanel>
+                <rich:modalPanel id="removeConfirmMsg">
+                    <f:facet name="controls">
+                                <h:panelGroup>
+                                    <h:graphicImage value="/images/close.png" styleClass="hidelink" id="hidelink2"/>
+                                    <rich:componentControl for="logFieldEdit" attachTo="hidelink2" operation="hide" event="onclick"/>
+                                </h:panelGroup>
+                            </f:facet>
+                    <a4j:form>
+                        <h:outputText value="#{msgs.Main_interfaceRemovedMsg}"/><br/>
+                        <a4j:commandButton value="#{msgs.Main_interfaceRemoveConfirmOkBtn}" onclick="Richfaces.hideModalPanel('removeConfirmMsg');"/>
+                    </a4j:form>
+                </rich:modalPanel>
+
+            </div>
+
+	  </div>
+
+      </div>
+
+	  <div class="clr"></div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright <a href="#">Katva Consulting. All rights reserved</a>.</p>
+      <p class="rf">Design by Dream <a href="http://www.dreamtemplate.com/">Web Templates</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+4.6.2011 0:34:19 oracle.mds
+WARNING: Oletusmerkistö MacRoman ei ole unicode-merkistö. Tiedostonimet, joissa on muita kuin ASCII-merkkejä, eivät välttämättä toimi odotetulla tavalla. Tarkista kielialuemääritykset.
+4.6.2011 0:34:20 oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFO: XMLSchema incremental build enabled.

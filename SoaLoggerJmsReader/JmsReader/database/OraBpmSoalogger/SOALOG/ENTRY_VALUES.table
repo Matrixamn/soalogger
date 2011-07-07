@@ -1,0 +1,377 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">64820bb5-28ba-4129-bae1-0b094ac992c1</identifier>
+  </ID>
+  <name>ENTRY_VALUES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a6e7adf9-3037-45a1-9f07-8de155caf671</identifier>
+      </ID>
+      <name>VALUE_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">1d80ab67-3648-4d27-b620-942ce5f2f31b</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>VALUE_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ENTRY_VALUES</name>
+                  <identifier class="java.math.BigDecimal">28618</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>VALUE_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ENTRY_VALUES</name>
+              <identifier class="java.math.BigDecimal">28618</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">00075c5c-1932-4195-aa60-e5f93426e747</identifier>
+      </ID>
+      <name>VALUE_NAME</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">fc7dd15c-0458-41d7-961d-18b17533a979</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">200</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>VALUE_NAME</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ENTRY_VALUES</name>
+                  <identifier class="java.math.BigDecimal">28618</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>VALUE_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ENTRY_VALUES</name>
+              <identifier class="java.math.BigDecimal">28618</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">09fc6852-04fc-462b-913e-29c9871d7e96</identifier>
+      </ID>
+      <name>ENTRY_VALUE</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">39e6b5bc-bb80-4878-b109-20b484bc729b</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">2000</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>ENTRY_VALUE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ENTRY_VALUES</name>
+                  <identifier class="java.math.BigDecimal">28618</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ENTRY_VALUE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ENTRY_VALUES</name>
+              <identifier class="java.math.BigDecimal">28618</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">ec40d184-8847-4665-b63c-32ac50523372</identifier>
+      </ID>
+      <name>LOG_ENTRY_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">82c2d00e-dde5-43c5-bb24-0632b494cab5</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>LOG_ENTRY_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ENTRY_VALUES</name>
+                  <identifier class="java.math.BigDecimal">28618</identifier>
+                  <schemaName>SOALOG</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LOG_ENTRY_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ENTRY_VALUES</name>
+              <identifier class="java.math.BigDecimal">28618</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">6f90825c-c00b-4376-b5f0-4491244b901d</identifier>
+      </ID>
+      <name>ENTRY_VALUES_LOG_ENTRY_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>LOG_ENTRY_ID</name>
+          <identifier class="java.lang.String">ec40d184-8847-4665-b63c-32ac50523372</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>ENTRY_VALUES</name>
+            <identifier class="java.lang.String">64820bb5-28ba-4129-bae1-0b094ac992c1</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>1</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ENTRY_VALUES_LOG_ENTRY_FK</name>
+            <childObjectNames>
+              <childObjectName>LOG_ENTRY_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ENTRY_VALUES</name>
+              <identifier class="java.math.BigDecimal">28618</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>LOG_ENTRY_PK</name>
+        <identifier class="java.lang.String">4f238fcc-2d5a-49c3-807c-907ba74f42e9</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>LOG_ENTRY</name>
+          <identifier class="java.lang.String">12131d7e-9e1c-4770-afda-a4ae9f0df05d</identifier>
+          <schemaName>SOALOG</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SOALOG</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">cfb6673e-f882-4a25-904d-3dbd4f3e2528</identifier>
+      </ID>
+      <name>ENTRY_VALUES_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>VALUE_ID</name>
+          <identifier class="java.lang.String">a6e7adf9-3037-45a1-9f07-8de155caf671</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>ENTRY_VALUES</name>
+            <identifier class="java.lang.String">64820bb5-28ba-4129-bae1-0b094ac992c1</identifier>
+            <schemaName>SOALOG</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SOALOG</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>ENTRY_VALUES_PK</name>
+            <childObjectNames>
+              <childObjectName>VALUE_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ENTRY_VALUES</name>
+              <identifier class="java.math.BigDecimal">28618</identifier>
+              <schemaName>SOALOG</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>ENTRY_VALUES</name>
+        <identifier class="java.math.BigDecimal">28618</identifier>
+        <schemaName>SOALOG</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">75013ea7-550b-4ba9-8e2d-337cc25cf9d7</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>true</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <percentFree>10</percentFree>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>ENTRY_VALUES</name>
+                <identifier class="java.math.BigDecimal">28618</identifier>
+                <schemaName>SOALOG</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>USERS</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+    <entry>
+      <key>Timestamp</key>
+    </entry>
+  </properties>
+  <schema>
+    <name>SOALOG</name>
+  </schema>
+</table>

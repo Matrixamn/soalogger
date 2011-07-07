@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="Cp1252" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+  <persistence-unit name="SoaLoggerEjb">
+    <!-- Glassfish 2.1 persistence provider -->
+    <provider>oracle.toplink.essentials.PersistenceProvider</provider>
+    <!-- Weblogic 10.3 persistence provider -->
+    <!--<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+    <jta-data-source>jdbc/stockmannLogger</jta-data-source>
+    <class>stockmann.com.logging.EntryValues</class>
+    <class>stockmann.com.logging.LogEntry</class>
+    <class>stockmann.com.logging.LogFields</class>
+    <class>stockmann.com.logging.LogInterfaceNotification</class>
+    <class>stockmann.com.logging.LogInterface</class>
+    <class>stockmann.com.logging.LogSched</class>
+    <properties>
+      <property name="eclipselink.target-server" value="WebLogic_10"/>
+      <property name="javax.persistence.jtaDataSource"
+                value="jdbc/stockmannLogger"/>
+    </properties>
+  </persistence-unit>
+</persistence>

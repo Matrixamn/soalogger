@@ -1,0 +1,6 @@
+#surefire
+#Fri Jun 03 23:48:25 EEST 2011
+user.dir=/Users/iMac/Tuomaksen_projektit/LoggingService/SoaloggerService
+netbeans.execution=true
+localRepository=/Users/iMac/.m2/repository
+basedir=/Users/iMac/Tuomaksen_projektit/LoggingService/SoaloggerService

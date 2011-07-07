@@ -1,0 +1,21 @@
+<?binding.jca DbWrite_db.jca?>
+<wsdl:definitions name="DbWrite" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/LoggingService/SoaLoggerClientTest/DbWrite" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/LoggingService/SoaLoggerClientTest/DbWrite" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/DbWrite">
+    <plt:partnerLinkType name="DbWrite_plt">
+        <plt:role name="DbWrite_role">
+            <plt:portType name="tns:DbWrite_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/DbWrite" schemaLocation="xsd/DbWrite_table.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="TestCollection_msg">
+        <wsdl:part name="TestCollection" element="top:TestCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="DbWrite_ptt">
+        <wsdl:operation name="insert">
+            <wsdl:input message="tns:TestCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

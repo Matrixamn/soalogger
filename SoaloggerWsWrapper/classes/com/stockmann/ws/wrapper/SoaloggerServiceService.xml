@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname localpart="SoaloggerServiceService"
+                     namespaceURI="http://soaloggerservice.web.logging.soa.stockmann/"/>
+      <port-info>
+         <wsdl-port localpart="SoaloggerServicePort"
+                    namespaceURI="http://soaloggerservice.web.logging.soa.stockmann/"/>
+         <runtime/>
+         <operations>
+            <operation name="addLogEntryValues"/>
+            <operation name="getInterfaceFields"/>
+            <operation name="addLogMessage"/>
+            <operation name="addLogInterfaceEntry"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

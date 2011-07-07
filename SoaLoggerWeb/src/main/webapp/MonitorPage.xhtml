@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+<head>
+<title>Stockmann Soa logger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/coin-slider.css" />
+</head>
+<body>
+  <div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="menu_nav">
+        <ul>
+            <h:form id="linkForm">
+            <li><h:commandLink value="#{msgs.monitorPage_backLink}" action="#{monitorPage.navigateToSettings}" /></li>
+            <li><h:commandLink value="#{msgs.Main_maintenanceLink}" action="#{sessionController.navigateMaintenance}"/></li>
+            </h:form>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+	  <div class="article">
+		<img src="images/logo-stockmann.gif" />
+	  </div>
+	  <div class="article"></div>
+		<div class="article">
+		<a4j:outputPanel ajaxRendered="true">
+                <h:form style="display:none" prependId="false">
+                    <h:inputHidden id="maximumSeverity" value="#{facesContext.maximumSeverity.ordinal}"/>
+                </h:form>
+                </a4j:outputPanel>
+
+		</div>
+		<div class="article">
+                    
+
+
+                    <a4j:form id="findForm" >
+                        <rich:panel id="findFormPanel">
+                        <table>
+		
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.monitorPage_findFormTitle}"/>
+                                </f:facet>
+                             <tr>
+                                <td><h:outputText value="#{msgs.monitorPage_envTitle}"/></td>
+                            </tr>
+                            <tr>
+                                <td><h:selectOneMenu id="envSelect" value="#{monitorPage.selectedEnv}">
+                                        <f:selectItems value="#{monitorPage.envMap}"/>
+                                    </h:selectOneMenu>
+                                </td>
+                                <td>
+                                  <a4j:commandButton value="#{msgs.monitorPage_envFindBtn}" reRender="findOneMenu, entriesTableForm" action="#{monitorPage.findInterfaceWithEnv}"/>
+                              </td>
+                            </tr>
+                              
+                            <tr>
+                                <td>
+                                    <h:outputText value="#{msgs.monitorPage_findFormInterfaceTitle}"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{msgs.monitorPage_levelTitle}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <h:selectOneMenu id="findOneMenu" value="#{monitorPage.selectedInterfaceId}" >
+                                    <f:selectItems value="#{monitorPage.logInterfaceDropDownVals}"/>
+                                        </h:selectOneMenu>
+
+                                </td>
+                                <td>
+                                    <h:selectOneMenu id="findLogLevel" value="#{monitorPage.selectedLogLevel}" >
+                                        <f:selectItems value="#{monitorPage.logLevelHm}"/>
+                                        </h:selectOneMenu>
+                                </td>
+                                <td>
+                                    <a4j:commandLink value="#{msgs.monitorPage_findValBtn}" reRender="selectFieldMenu, selectField, searchHdr1, searchHdr2, findForm" action="#{monitorPage.showAdvanced}"/>
+                                </td>
+                                <td>
+                                    <a4j:commandLink value="#{msgs.monitorPage_findFromFile}" reRender="selectFieldMenu, selectField, searchHdr1, searchHdr2, findForm" action="#{monitorPage.setSearchFromMessages}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h:outputText value="#{msgs.monitorPage_findFormFrom}"/></td>
+                                <td><h:outputText value="#{msgs.monitorPage_findFormTo}"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                <rich:calendar id="fromDate" value="#{monitorPage.fromDate}" datePattern="#{msgs.datePattern}" showApplyButton="true" reRender="findForm"/>
+                                </td>
+                                <td>
+                                    <rich:calendar id="toDate" value="#{monitorPage.toDate}" datePattern="#{msgs.datePattern}" showApplyButton="true" reRender="findForm"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputText id="searchHdr1" rendered="#{monitorPage.showAdvSearch}" value="#{msgs.monitorPage_findFormValName}"/>
+                                </td>
+                                <td>
+                                    <h:outputText id="searchHdr2" rendered="#{monitorPage.showAdvSearch}" value="#{msgs.monitorPage_findFormVal}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:selectOneMenu id="selectFieldMenu" rendered="#{monitorPage.showAdvSearch}" value="#{monitorPage.selectedFieldId}" >
+                                        <f:selectItems value="#{monitorPage.fieldMap}"/>
+                                        </h:selectOneMenu>
+                                </td>
+                                <td>
+                                    <h:inputText id="selectField" rendered="#{monitorPage.showAdvSearch}" value="#{monitorPage.searchVal}" />
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputText value="#{msgs.monitorPage_findTextTitle}" rendered="#{monitorPage.searchFromMessages}"/>
+                                </td>
+                                <td>
+                                    <h:inputText value="#{monitorPage.searchString}" rendered="#{monitorPage.searchFromMessages}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:messages/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a4j:commandButton id="findBtn" value="#{msgs.monitorPage_findFormFindBtn}" eventsQueue="foo" reRender="entriesTableForm, messagePopup, findForm" oncomplete="if (ajaxRequestContainsErrors()) {Richfaces.showModalPanel('messagePopup', {height:'80px', width:'250px'})};" action="#{monitorPage.findWithDates}"/>
+                                </td>
+                                <td>
+                                    <a4j:commandButton id="cancelBtn" value="#{msgs.monitorPage_findCancelBtn}" reRender="findForm" rendered="#{monitorPage.searchFromMessages or monitorPage.showAdvSearch}" action="#{monitorPage.cancelSearches}"/>
+                                </td>
+                                <td>
+                                    <a4j:status>
+                                        <f:facet name="start">
+                                        <h:graphicImage  value="/images/wait3.gif"/>
+                                        </f:facet>
+                                    </a4j:status>
+                                </td>
+                            </tr>
+                
+                             </table>
+                            </rich:panel>
+                    </a4j:form>
+                    <rich:modalPanel id="messagePopup">
+                        <table>
+                            <tr>
+                                <td>
+                                    <h:messages/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a4j:commandButton value="#{msgs.MessagePopup_okBtn}" onclick="Richfaces.hideModalPanel('messagePopup');" />
+                                </td>
+                            </tr>
+                        </table>
+
+                    </rich:modalPanel>
+                    
+		</div>
+          
+                <div class="article">
+                    <a4j:form id="entriesTableForm">
+                        <rich:panel id="entriesTablePanel">
+                        <rich:extendedDataTable id="entriesTable" rendered="#{monitorPage.showEntries}" value="#{monitorPage.entries}" var="entry" selectionMode="single" selection="#{monitorPage.entrySelection}"
+                                                width="600px" height="200px">
+
+                            <rich:column width="150px">
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.monitorPage_entryTableInstanceId}"/>
+                                </f:facet>
+                                <h:outputText value="#{entry.integrationInstanceId}"/>
+                            </rich:column>
+                            <rich:column sortable="true" width="100px" sortBy="#{entry.logLevel}">
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.monitorPage_entryTableLogLevel}"/>
+                                </f:facet>
+                                <h:outputText value="#{entry.logLevel}"/>
+                            </rich:column>
+                            <rich:column sortable="true" width="200px" sortBy="#{entry.logDate}">
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.monitorPage_entryTableDate}"/>
+                                </f:facet>
+                                <h:outputText value="#{entry.logDate}">
+                                    <f:convertDateTime pattern="#{msgs.datePattern}" timeZone="#{msgs.defTimeZone}"/>
+                                </h:outputText>
+                            </rich:column>
+                            <rich:column width="150px">
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.monitorPage_entryTableLogMsg}"/>
+                                </f:facet>
+                                <h:outputText value="#{entry.logMsg}"/>
+                            </rich:column>
+                            <a4j:support reRender="entryValTableForm" oncomplete="Richfaces.showModalPanel('entryValPanel', {height:'380px', width:'250px'});" id="take_ValSelection" action="#{monitorPage.showEntrySelection}" event="onclick"  />
+                        </rich:extendedDataTable>
+                        </rich:panel>
+                    </a4j:form>
+                    
+                        <rich:modalPanel id="entryValPanel" >
+                                <f:facet name="header">
+                                    <h:outputText value="#{msgs.monitorPage_ValTableTitle}"/>
+                                </f:facet>
+                                <f:facet name="controls">
+                                <h:panelGroup>
+                                    <h:graphicImage value="/images/close.png" styleClass="hidelink" id="hidelink"/>
+                                    <rich:componentControl for="entryValPanel" attachTo="hidelink" operation="hide" event="onclick"/>
+                                </h:panelGroup>
+                            </f:facet>
+                            <a4j:form id="entryValTableForm">
+                            <rich:extendedDataTable id="entryValTable" value="#{monitorPage.values}" var="value" selectionMode="single" selection="#{monitorPage.valueSelection}"
+                                                    width="200px" height="200px">
+
+                                <rich:column sortable="true" sortBy="#{value.valueName}">
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msgs.monitorPage_ValTableValName}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{value.valueName}"/>
+                                </rich:column>
+                                <rich:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msgs.monitorPage_ValTableValVal}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{value.entryValue}"/>
+                                </rich:column>
+                                <a4j:support reRender="valDetailPanel" oncomplete="Richfaces.showModalPanel('valDetailPanel', {height:'250px', width:'220px'});" id="takeEntryValueSelection" action="#{monitorPage.showValueSelection}" event="onclick"  />
+                            </rich:extendedDataTable>
+                            <h:outputText value="#{msgs.monitorPage_logMsgHdr}"/>
+                            <h:inputTextarea rows="5" id="logMsgArea" readonly="true" cols="40"  value="#{monitorPage.selectedEntry.logMsg}"/>
+                            <h:outputLink value="#{monitorPage.selectedEntry.urlPath}" rendered="#{monitorPage.selectedEntry.urlSet}" target="_blank">
+                                    <h:outputText value="#{msgs.monitorPage_entryTableFileLink}"/>
+                                </h:outputLink><br/>
+                            </a4j:form>
+                        </rich:modalPanel>
+
+                        <rich:modalPanel id="valDetailPanel">
+                            <f:facet name="header">
+                                    <h:outputText value="#{msgs.monitorPage_SelectedVal}"/>
+                                </f:facet>
+                                <f:facet name="controls">
+                                <h:panelGroup>
+                                    <h:graphicImage value="/images/close.png" styleClass="hidelink" id="hideVallink"/>
+                                    <rich:componentControl for="valDetailPanel" attachTo="hideVallink" operation="hide" event="onclick"/>
+                                </h:panelGroup>
+                            </f:facet>
+                            <a4j:form id="valDetailForm">
+                                <table>
+                                    <tr>
+                                        <td><h:inputText readonly="true" value="#{monitorPage.selectedValue.valueName}"/> </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:inputTextarea rows="10"  cols="30"  readonly="true" value="#{monitorPage.selectedValue.entryValue}"/> </td>
+                                    </tr>
+                                </table>
+                            </a4j:form>
+                        </rich:modalPanel>
+                    
+                </div>
+
+	  </div>
+
+      </div>
+
+	  <div class="clr"></div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; Copyright <a href="#">Katva Consulting. All rights reserved</a>.</p>
+      <p class="rf">Design by Dream <a href="http://www.dreamtemplate.com/">Web Templates</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+
+</body>
+</html>

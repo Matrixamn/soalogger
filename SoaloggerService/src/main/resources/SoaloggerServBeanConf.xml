@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+     <bean id="LogMsgWriter" class="stockmann.soa.logging.web.soaloggerservice.util.LogMsgWriterImpl">
+         <property name="basePath" value="/home/katvtuo/glassfish/domains/domain1/docroot/SoaLogger"/>
+     </bean>
+
+     <bean id="MsgUtil" class="stockmann.soa.logging.web.soaloggerservice.util.LogMsgUtil">
+        <property name="writer" ref="LogMsgWriter"/>
+     </bean>
+
+     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="146.204.50.10"/>
+    </bean>
+
+    <bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
+      <property name="from" value="soalogger@stockmann.com"/>
+      <property name="subject" value="Error in interface"/>
+    </bean>
+
+    <bean id="defaultMailer" class="stockmann.soa.logging.web.soaloggerservice.mail.SoaLoggerMailerImpl">
+      <property name="mailSender" ref="mailSender"/>
+      <property name="templateMessage" ref="templateMessage"/>
+    </bean>
+
+</beans>

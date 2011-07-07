@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="SdmpTest" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="SdmpTest" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="sid">
+            <Contents>ossi</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="subtype">
+            <Contents>oraJDBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>1521</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>146.204.16.175</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>sdmp</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oraDriverType">
+            <Contents>thin</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="StockmannLogger" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="StockmannLogger" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="subtype">
+            <Contents>thirdParty</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>soalog</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="driver">
+            <Contents>org.postgresql.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="customUrl">
+            <Contents>jdbc:postgresql://hiphiphurax:5432/soalog</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="MetaDevDb" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="MetaDevDb" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="sid">
+            <Contents>METDEVDB</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="subtype">
+            <Contents>oraJDBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>1521</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>psaixts</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>params</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oraDriverType">
+            <Contents>thin</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="11gDevMds" className="oracle.tip.tools.ide.common.resourcepalette.adapter.mds.MDSProvider" credentialStoreKey="11gDevMds" xmlns="">
+      <Factory className="oracle.tip.tools.ide.common.resourcepalette.adapter.mds.MDSProviderFactory"/>
+      <RefAddresses>
+         <SecureRefAddr addrType="DBMDSJDBCPASSWORD"/>
+         <StringRefAddr addrType="ConnectionName">
+            <Contents>11gDevMds</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DBMDS_JDBC_USERID">
+            <Contents>DEV_MDS</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="ConnectionType">
+            <Contents>oracle.mds.persistence.stores.db.DBMetadataStore</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="MDS_PARTITION_NAME">
+            <Contents>owsm</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DBMDSDBCONNECTIONNAME">
+            <Contents>11gSoaDev</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="DBMDS_JDBC_URL">
+            <Contents>jdbc:oracle:thin:@//psaixts:1521/FMWTST.world</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

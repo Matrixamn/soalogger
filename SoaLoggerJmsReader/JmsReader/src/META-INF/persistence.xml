@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+  <persistence-unit name="JmsReader">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>jdbc/soalogger</jta-data-source>
+    <!--<jta-data-source>java:/app/jdbc/jdbc/OraBpmSoaloggerDS</jta-data-source>-->
+    <class>tkatva.net.soalogger.entity.EntryValues</class>
+    <class>tkatva.net.soalogger.entity.InterfaceUsrGroups</class>
+    <class>tkatva.net.soalogger.entity.IntUsr</class>
+    <class>tkatva.net.soalogger.entity.LoginterfaceNotification</class>
+    <class>tkatva.net.soalogger.entity.LogEntry</class>
+    <class>tkatva.net.soalogger.entity.LogFields</class>
+    <class>tkatva.net.soalogger.entity.LogInterface</class>
+    <class>tkatva.net.soalogger.entity.LogSched</class>
+    <class>tkatva.net.soalogger.entity.UserGroup</class>
+    <class>tkatva.net.soalogger.entity.UsrGrpUsr</class>
+    <properties>
+      <property name="eclipselink.target-server" value="WebLogic_10"/>
+      <property name="javax.persistence.jtaDataSource"
+                value="jdbc/soalogger"/>
+      <!--<property name="javax.persistence.jtaDataSource"
+                value="java:/app/jdbc/jdbc/OraBpmSoaloggerDS"/>-->
+    </properties>
+  </persistence-unit>
+</persistence>

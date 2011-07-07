@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://xmlns.stockmann.com/icc/common"
+            targetNamespace="http://xmlns.stockmann.com/icc/common"
+            elementFormDefault="qualified">
+  <xsd:element name="LogEntry">
+    <xsd:annotation>
+      <xsd:documentation>
+        A sample element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="InterfaceName" type="xsd:string"/>
+        <xsd:element name="LogLevel" type="xsd:string"/>
+        <xsd:element name="LogDate" type="xsd:date"/>
+        <xsd:element name="LogTimestamp" type="xsd:time"/>
+        <xsd:element name="LogPayload" type="xsd:string"/>
+        <xsd:element name="OpaquePayload" type="xsd:base64Binary"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

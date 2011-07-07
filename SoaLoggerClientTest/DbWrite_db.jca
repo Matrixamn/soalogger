@@ -1,0 +1,14 @@
+<adapter-config name="DbWrite" adapter="Database Adapter" wsdlLocation="DbWrite.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/db/Sdmp" UIConnectionName="SdmpTest" adapterRef=""/>
+  <endpoint-interaction portType="DbWrite_ptt" operation="insert">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="DbWrite.Test"/>
+      <property name="DmlType" value="insert"/>
+      <property name="MappingsMetaDataURL" value="DbWrite-or-mappings.xml"/>
+      <property name="DetectOmissions" value="true"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>
